@@ -1,0 +1,122 @@
+diff --git a/www/img/adam.jpg b/www/img/adam.jpg
+deleted file mode 100644
+index 5a5d37c..0000000
+Binary files a/www/img/adam.jpg and /dev/null differ
+diff --git a/www/img/ben.png b/www/img/ben.png
+deleted file mode 100644
+index 374d32e..0000000
+Binary files a/www/img/ben.png and /dev/null differ
+diff --git a/www/img/ionic.png b/www/img/ionic.png
+deleted file mode 100644
+index 21c7f37..0000000
+Binary files a/www/img/ionic.png and /dev/null differ
+diff --git a/www/img/max.png b/www/img/max.png
+deleted file mode 100644
+index a4ab62b..0000000
+Binary files a/www/img/max.png and /dev/null differ
+diff --git a/www/img/mike.png b/www/img/mike.png
+deleted file mode 100644
+index e9abd4d..0000000
+Binary files a/www/img/mike.png and /dev/null differ
+diff --git a/www/img/perry.png b/www/img/perry.png
+deleted file mode 100644
+index 2ab43ff..0000000
+Binary files a/www/img/perry.png and /dev/null differ
+diff --git a/www/js/app.js b/www/js/app.js
+index 9ca8f5b..0302b81 100644
+--- a/www/js/app.js
++++ b/www/js/app.js
+@@ -39,12 +39,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+   })
+ 
+   // Each tab has its own nav history stack:
+-  .state('tab.chats', {
+-      url: '/chats',
++  .state('tab.items', {
++      url: '/items',
+       views: {
+-        'tab-chats': {
+-          templateUrl: 'templates/tab-chats.html',
+-          controller: 'ChatsCtrl'
++        'tab-items': {
++          templateUrl: 'templates/tab-items.html',
++          controller: 'ItemsCtrl'
+         }
+       }
+     })
+@@ -66,9 +66,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+         controller: 'AccountCtrl'
+       }
+     }
+-  });
++  })
+ 
+   // if none of the above states are matched, use this as the fallback
+-  $urlRouterProvider.otherwise('/tab/chats');
++  $urlRouterProvider.otherwise('/tab/items');
+ 
+ });
+diff --git a/www/js/controllers.js b/www/js/controllers.js
+index 1aeb84c..16a68c7 100644
+--- a/www/js/controllers.js
++++ b/www/js/controllers.js
+@@ -1,6 +1,6 @@
+ angular.module('starter.controllers', [])
+ 
+-.controller('ChatsCtrl', function($scope, Chats) {
++.controller('ItemsCtrl', function($scope, Items) {
+   // With the new view caching in Ionic, Controllers are only called
+   // when they are recreated or on app start, instead of every page change.
+   // To listen for when this page is active (for example, to refresh data),
+@@ -9,9 +9,9 @@ angular.module('starter.controllers', [])
+   //$scope.$on('$ionicView.enter', function(e) {
+   //});
+ 
+-  $scope.chats = Chats.all();
+-  $scope.remove = function(chat) {
+-    Chats.remove(chat);
++  $scope.items = Items.all();
++  $scope.remove = function(item) {
++    Items.remove(item);
+   };
+ })
+ 
+diff --git a/www/templates/tab-chats.html b/www/templates/tab-chats.html
+deleted file mode 100644
+index 21a6675..0000000
+--- a/www/templates/tab-chats.html
++++ /dev/null
+@@ -1,16 +0,0 @@
+-<ion-view view-title="Chats">
+-  <ion-content>
+-    <ion-list>
+-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+-        <img ng-src="{{chat.face}}">
+-        <h2>{{chat.name}}</h2>
+-        <p>{{chat.lastText}}</p>
+-        <i class="icon ion-chevron-right icon-accessory"></i>
+-
+-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+-          Delete
+-        </ion-option-button>
+-      </ion-item>
+-    </ion-list>
+-  </ion-content>
+-</ion-view>
+diff --git a/www/templates/tabs.html b/www/templates/tabs.html
+index 660a28b..8c944fd 100644
+--- a/www/templates/tabs.html
++++ b/www/templates/tabs.html
+@@ -5,9 +5,9 @@ navigation history that also transitions its views in and out.
+ -->
+ <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+ 
+-  <!-- Chats Tab -->
+-  <ion-tab title="Chats" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chats">
+-    <ion-nav-view name="tab-chats"></ion-nav-view>
++  <!-- Chats Tab becomes Items Tab -->
++  <ion-tab title="Prices" icon-off="ion-ios-calculator" icon-on="ion-ios-calculator" href="#/tab/items">
++    <ion-nav-view name="tab-items"></ion-nav-view>
+   </ion-tab>
+ 
+   <!-- Account Tab -->
