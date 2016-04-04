@@ -1,47 +1,58 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('Items', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
+  var items = [{
     id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
+    name: 'Milk 1L',
+    price: '€0.85',
+    pic: 'img/milk_1l.png',
+    qty: 0
   }, {
     id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
+    name: 'Milk 2L',
+    price: '€1.45',
+    pic: 'img/milk2l.png',
+    qty: 0
   }, {
     id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
+    name: 'Sliced Bread White',
+    price: '€0.70',
+    pic: 'img/white.png',
+    qty: 0
   }, {
     id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
+    name: 'Sliced Bread Brown',
+    price: '€0.80',
+    pic: 'img/brownb.png',
+    qty: 0
   }, {
     id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    name: 'Sliced Bread Granary',
+    price: '€1.40',
+    pic: 'img/granary.png',
+    qty: 0
+  },{
+    id: 5,
+    name: 'Barry\'s Teabags',
+    price: '€2.05',
+    pic: 'img/teabags.png',
+    qty: 0
   }];
 
   return {
     all: function() {
-      return chats;
+      return items;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(item) {
+      items.splice(items.indexOf(item), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(itemId) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].id === parseInt(itemId)) {
+          return items[i];
         }
       }
       return null;
