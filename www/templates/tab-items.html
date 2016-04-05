@@ -1,14 +1,20 @@
 <ion-view view-title="Items">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="#/tab/items/{{item.id}}">
+      <ion-item class="item-remove-animate item-avatar item-button-right item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="#/tab/items/{{item.id}}">
         <img ng-src="{{item.pic}}">
         <h2>{{item.name}}</h2>
-        <p>{{item.price}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-button class="button button-positive" ng-click="remove(item)">
+          {{item.price}}
+        </ion-button>
+
+        <ion-option-button class="button-light" ng-click="remove(item)">
+          <i class="icon ion-minus-circled"></i>
+        </ion-option-button>
 
         <ion-option-button class="button-assertive" ng-click="remove(item)">
-          Delete
+          <i class="icon ion-pricetag"></i>
         </ion-option-button>
       </ion-item>
     </ion-list>
