@@ -1,5 +1,11 @@
-<ion-view view-title="Items">
+<ion-view>
   <ion-content>
+  <h3 class="Total">
+    Total:
+      <span id="totalcalc">
+      </span>
+  <h3>
+    <ion-list>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-button-right item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="#/tab/items/{{item.id}}">
         <img ng-src="{{item.pic}}">
