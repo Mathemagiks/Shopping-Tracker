@@ -7,37 +7,37 @@ angular.module('starter.services', [])
   var items = [{
     id: 0,
     name: 'Milk 1L',
-    price: '€0.85',
+    price: 0.85,
     pic: 'img/milk_1l.png',
     qty: 0
   }, {
     id: 1,
     name: 'Milk 2L',
-    price: '€1.45',
+    price: 1.45,
     pic: 'img/milk2l.png',
     qty: 0
   }, {
     id: 2,
     name: 'Sliced Bread White',
-    price: '€0.70',
+    price: 0.70,
     pic: 'img/white.png',
     qty: 0
   }, {
     id: 3,
     name: 'Sliced Bread Brown',
-    price: '€0.80',
+    price: 0.80,
     pic: 'img/brownb.png',
     qty: 0
   }, {
     id: 4,
     name: 'Sliced Bread Granary',
-    price: '€1.40',
+    price: 1.40,
     pic: 'img/granary.png',
     qty: 0
   },{
     id: 5,
     name: 'Barry\'s Teabags',
-    price: '€2.05',
+    price: 2.05,
     pic: 'img/teabags.png',
     qty: 0
   }];
