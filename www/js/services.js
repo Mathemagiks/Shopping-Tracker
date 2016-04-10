@@ -1,5 +1,5 @@
 angular.module('starter.services', [])
-//Originally .factory('Chats')- replaced 'chats' with 'items' and appropriated data.
+//Originally .factory('Chats')- replaced 'chats' with 'items' and appropriated data in JSON array.
 .factory('Items', function() {
   // Might use a resource here that returns a JSON array
 

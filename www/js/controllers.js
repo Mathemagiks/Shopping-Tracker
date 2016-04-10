@@ -11,9 +11,15 @@ angular.module('starter.controllers', [])
   //});
 
   $scope.items = Items.all();
+
   $scope.remove = function(item) {
     Items.remove(item);
   };
+  $scope.calcTotal = 0;
+   /*$scope.calculateTotal = function(price)
+    { 
+      $scope.calcTotal += $scope.parseFloat(price.substring(1, price.length));
+    };*/
 })
 
 /*.controller('ItemDetailCtrl', function($scope, $stateParams, Items) {
