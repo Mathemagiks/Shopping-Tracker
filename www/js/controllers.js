@@ -1,5 +1,6 @@
 angular.module('starter.controllers', [])
 
+//ChatsCtrl became ItemsCtrl and all Chats/chat changed to Items/item so MVC functionality of pre-existing controller remains but now valid to my project.
 .controller('ItemsCtrl', function($scope, Items) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -15,12 +16,11 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ItemDetailCtrl', function($scope, $stateParams, Items) {
+/*.controller('ItemDetailCtrl', function($scope, $stateParams, Items) {
   $scope.item = Items.get($stateParams.itemId);
 })
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+//*/
+.controller('ShoppingCtrl', function($scope, Items) {
+ 
+  $scope.items = Items.all();
 });

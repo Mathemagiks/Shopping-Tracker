@@ -1,0 +1,16 @@
+<!-- Originally the tab-account-->
+<ion-view >
+  <ion-content>
+    <ion-list>
+    <!-- used ng-repeat directive to loop and list items in Item of JSON array. The {{ syntax }} indicates a (key, value) binding. The 'key'  is to the left in JSON array and 'value'  to right (see array in services.js) in this case the images (pic) to the items and qty to items.-->
+    <div ng-repeat= "item in items">
+    		<img ng-src="{{item.pic}}">
+    
+    <div>
+    
+    <h3>{{item.qty}}</h3>
+    </div>
+    </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

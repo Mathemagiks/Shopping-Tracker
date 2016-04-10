@@ -35,6 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // Each tab has its own nav history stack:
+  //changed nav history of tab.chats to tabs.items. Renamed controller.
   .state('tab.items', {
       url: '/items',
       views: {
@@ -44,7 +45,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.item-detail', {
+    /*.state('tab.item-detail', {
       url: '/items/:itemId',
       views: {
         'tab-items': {
@@ -52,19 +53,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'ItemDetailCtrl'
         }
       }
-    })
+    })*/
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.shopping', {
+    url: '/shopping',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-shopping': {
+        templateUrl: 'templates/tab-shopping.html',
+        controller: 'ShoppingCtrl'
       }
     }
   })
 
   // if none of the above states are matched, use this as the fallback
+
   $urlRouterProvider.otherwise('/tab/items');
 
 });

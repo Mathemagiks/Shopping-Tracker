@@ -1,5 +1,5 @@
 angular.module('starter.services', [])
-
+//Originally .factory('Chats')- replaced 'chats' with 'items' and appropriated data.
 .factory('Items', function() {
   // Might use a resource here that returns a JSON array
 
@@ -41,7 +41,7 @@ angular.module('starter.services', [])
     pic: 'img/teabags.png',
     qty: 0
   }];
-
+// Changed references to chats to items.
   return {
     all: function() {
       return items;
