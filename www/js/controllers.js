@@ -38,13 +38,42 @@ angular.module('starter.controllers', [])
       
     };
 
+    // Raise a prompt to allow the user to change the price
     $scope.changePrice = function(item){
+      // declare a working variable 'price'
       var price;
+
       do{
-        price = parseFloat(prompt("Enter a valid price.."));
+          // Get the user input
+          price = prompt("Please enter a valid price...");
+          /* If the user presses cancel, price is equal to 
+             null. In that case, finish the function here
+             so that no change occurs.
+
+             Otherwise, parse the user input price as a float, 
+             andn save it to the working variable 'price.''
+          */
+          if(price === null)
+          {
+            return; // break out of the changePrice function
+          }
+          else 
+          {
+            /* Convert the price string to a float. Note that if
+            the user enters something like 1.07h, the parseFloat
+            function will not complain. Instead, it will save
+            1.07. This is a good compromise because in most 
+            cases the user will likely input something like this
+            inadvertently. However, in a production app, 
+            more validation would be needed to secure the 
+            app against malicious code.*/
+            price = parseFloat(price); 
+          }
+        
       }
         while(!angular.isNumber(price) || isNaN(price))
-        item.price = price;
+          item.price = price;
+        
       
     };
 })
