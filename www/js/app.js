@@ -1,10 +1,6 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
+/* The app module was adapted from the starter template. Routes were modified to match the
+changes in the templates and controllers. 
+*/ 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
@@ -22,7 +18,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   });
 })
-
 .config(function($stateProvider, $urlRouterProvider) {
   
   $stateProvider
@@ -36,6 +31,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
   //changed nav history of tab.chats to tabs.items. Renamed controller.
+
+  // This defines the route for the prices/items tab
   .state('tab.items', {
       url: '/items',
       views: {
@@ -45,16 +42,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    /*.state('tab.item-detail', {
-      url: '/items/:itemId',
-      views: {
-        'tab-items': {
-          templateUrl: 'templates/item-detail.html',
-          controller: 'ItemDetailCtrl'
-        }
-      }
-    })*/
 
+  // This defines the route for the shopping/calculator tab
   .state('tab.shopping', {
     url: '/shopping',
     views: {
@@ -66,7 +55,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // if none of the above states are matched, use this as the fallback
-
   $urlRouterProvider.otherwise('/tab/items');
 
 });

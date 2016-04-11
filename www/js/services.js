@@ -1,9 +1,10 @@
 angular.module('starter.services', [])
-//Originally .factory('Chats')- replaced 'chats' with 'items' and appropriated data in JSON array.
+/* Originally .factory('Chats'). I replaced 'chats' with 'items' and revised 
+the chats array to match the new data shopping tracker data model.
+*/
 .factory('Items', function() {
-  // Might use a resource here that returns a JSON array
 
-  // Some fake testing data
+  // Shopping list items array (this is the app model (MVC design pattern))
   var items = [{
     id: 0,
     name: 'Milk 1L',
@@ -41,6 +42,7 @@ angular.module('starter.services', [])
     pic: 'img/teabags.png',
     qty: 0
   }];
+  
 // Changed references to chats to items.
   return {
     all: function() {

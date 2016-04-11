@@ -2,12 +2,21 @@
 <ion-view>
   <ion-content>
   <h3 class="Total">
+    <!-- This directive binds to the total in the associated controller scope.
+    This is updated automatically because AngularJS handles the binding. The pipe
+    character '|' and the expression after it allow angular to filter the value
+    to ensure that it is presented in the view with the right number of decimal
+    places, and the right currency symbol.
+    -->
     Total:{{total | currency : "€"}}
       <span id="totalcalc">
       </span>
   <h3>
     <ion-list>
     <ion-list>
+    <!-- The directives below, {{item.id}}, {{item.price}}, and so on, allow the view
+    to be bound to the model. When changes occur to the model, the view is updated 
+    automatically by AngularJS. -->
       <ion-item class="item-remove-animate item-avatar item-button-right item-icon-right" ng-repeat="item in items" type="item-text-wrap" href="#/tab/items/{{item.id}}">
         <img ng-src="{{item.pic}}">
         <h2>{{item.name}}</h2>
