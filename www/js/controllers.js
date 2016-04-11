@@ -11,15 +11,22 @@ angular.module('starter.controllers', [])
   //});
 
   $scope.items = Items.all();
-
+  
   $scope.remove = function(item) {
     Items.remove(item);
   };
-  $scope.calcTotal = 0;
+  $scope.total = 0;
    /*$scope.calculateTotal = function(price)
     { 
       $scope.calcTotal += $scope.parseFloat(price.substring(1, price.length));
     };*/
+    $scope.calculate = function(item){
+      $scope.total += item.price;
+    }
+
+    $scope.updateQty = function(item){
+    item.qty++;
+  }
 })
 
 /*.controller('ItemDetailCtrl', function($scope, $stateParams, Items) {
@@ -29,4 +36,6 @@ angular.module('starter.controllers', [])
 .controller('ShoppingCtrl', function($scope, Items) {
  
   $scope.items = Items.all();
+  //console.log(item);
+  
 });

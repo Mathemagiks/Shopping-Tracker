@@ -3,6 +3,8 @@
   <ion-content padding="true">
     <ion-list>
     <!-- used ng-repeat directive to loop and list items in Item of JSON array. The {{ syntax }} indicates a (key, value) binding. The 'key'  is to the left in JSON array and 'value'  to right (see array in services.js) in this case the images (pic) to the items and qty to items.-->
+
+
    <!--<div class = "row header">
    		<div class="col">Items</div>
    		<div class="col">Quantity bought</div>
@@ -22,7 +24,7 @@
     	<th>Items</th>
     	<th>Quantity bought</th>
     </tr>
-    <tr ng-repeat= "item in items">
+    <tr ng-repeat="item in items">
     	
     		<td>
     			<img ng-src="{{item.pic}}">

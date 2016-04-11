@@ -2,7 +2,7 @@
 <ion-view>
   <ion-content>
   <h3 class="Total">
-    Total:
+    Total:{{total | currency : "€"}}
       <span id="totalcalc">
       </span>
   <h3>
@@ -12,8 +12,8 @@
         <img ng-src="{{item.pic}}">
         <h2>{{item.name}}</h2>
 
-        <ion-button class="button button-positive" ng-click="remove(item)">
-          {{item.price}}
+        <ion-button class="button button-positive" ng-click="calculate(item); updateQty(item);">
+          {{item.price | currency : "€"}}
         </ion-button>
 
         <ion-option-button class="button-light" ng-click="remove(item)">
