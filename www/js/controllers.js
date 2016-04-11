@@ -47,14 +47,21 @@ project.
     item.qty++;
   };
 
-  // Deduct the item price from the total
+  // Deduct the item price from the total provided total > 0
   $scope.deductFromTotal = function(item){
-    $scope.total -= item.price;
+    if($scope.total > 0){
+      $scope.total -= item.price;
+    }
+    
   };
 
-  // Decrease the qty of the item by 1 in the items model
+  // Decrease the qty of the item by 1 in the items model provided qty > 0
   $scope.decreaseQty = function(item){
-    item.qty--;
+    if(item.qty > 0)
+    {
+      item.qty--;
+    }
+    
   };
 
   /* Raise a prompt to allow the user to change the price
@@ -71,7 +78,7 @@ project.
         /* If the user presses cancel, price is equal to null. In that 
         case, finish the function here so that no change occurs. Otherwise, 
         parse the user input price as a float, and save it to the working 
-        variable 'price.''
+        variable 'price.'
         */
         if(price === null)
           {
@@ -84,7 +91,7 @@ project.
             Instead, it will save 1.07. This is a good compromise because in most 
             cases the user will likely input something like this inadvertently. 
             However, in a production app, more validation would be needed to secure 
-            the app against malicious code.
+            the app against malicious code. 
             */
             price = parseFloat(price); 
           }
