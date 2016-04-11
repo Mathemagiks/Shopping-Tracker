@@ -16,18 +16,40 @@ angular.module('starter.controllers', [])
     Items.remove(item);
   };
   $scope.total = 0;
+  $scope.parseFloat = parseFloat;
    /*$scope.calculateTotal = function(price)
     { 
       $scope.calcTotal += $scope.parseFloat(price.substring(1, price.length));
     };*/
     $scope.calculate = function(item){
       $scope.total += item.price;
-    }
+    };
 
-    $scope.updateQty = function(item){
+    $scope.increaseQty = function(item){
     item.qty++;
-  }
+  };
+
+    $scope.deductFromTotal = function(item){
+      $scope.total -= item.price;
+    };
+
+   $scope.decreaseQty = function(item){
+      item.qty--;
+      
+    };
+
+    $scope.changePrice = function(item){
+      var price;
+      do{
+        price = parseFloat(prompt("Enter a valid price.."));
+      }
+        while(!angular.isNumber(price) || isNaN(price))
+        item.price = price;
+      
+    };
 })
+
+
 
 /*.controller('ItemDetailCtrl', function($scope, $stateParams, Items) {
   $scope.item = Items.get($stateParams.itemId);

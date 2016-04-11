@@ -12,15 +12,15 @@
         <img ng-src="{{item.pic}}">
         <h2>{{item.name}}</h2>
 
-        <ion-button class="button button-positive" ng-click="calculate(item); updateQty(item);">
+        <ion-button class="button button-positive" ng-click="calculate(item);increaseQty(item)">
           {{item.price | currency : "€"}}
         </ion-button>
 
-        <ion-option-button class="button-light" ng-click="remove(item)">
+        <ion-option-button class="button-light" ng-click="deductFromTotal(item); decreaseQty(item)">
           <i class="icon ion-minus-circled"></i>
         </ion-option-button>
 
-        <ion-option-button class="button-assertive" ng-click="remove(item)">
+        <ion-option-button class="button-assertive" ng-click="changePrice(item)">
           <i class="icon ion-pricetag"></i>
         </ion-option-button>
       </ion-item>
