@@ -10,6 +10,7 @@ project.
   for implementation
     */
   $scope.items = Items.all();
+
   
   // Remove an item
   $scope.remove = function(item) {
@@ -35,11 +36,19 @@ project.
   */
   $scope.parseFloat = parseFloat;
 
-  /* Add the price of the current item to the total and Ionic updates 
-  the view using a data binding
+  /* 
+    Calculate the total cost for all items in the shopping cart
   */
   $scope.calculate = function(item){
-    $scope.total += item.price;    
+
+    var itemTotal = 0;
+   
+    for(i=0; i<$scope.items.length; i++)
+    {
+      itemTotal += Items.get(i).qty * Items.get(i).price;
+    }
+    $scope.total = itemTotal;
+
   };
 
   // Increase the qty of the item by 1 in the items model
@@ -47,21 +56,22 @@ project.
     item.qty++;
   };
 
-  // Deduct the item price from the total provided total > 0
-  $scope.deductFromTotal = function(item){
-    if($scope.total > 0){
-      $scope.total -= item.price;
-    }
-    
-  };
-
   // Decrease the qty of the item by 1 in the items model provided qty > 0
   $scope.decreaseQty = function(item){
-    if(item.qty > 0)
+    // if(item.qty > 0)
+    // {
+    //   item.qty--;
+    // }
+    if(item.qty === 0)
+    {
+      alert("No "+ item.name + " in shopping basket");
+    }
+    else
     {
       item.qty--;
     }
-    
+    // Since quantity has been changed, recalculate total
+    $scope.calculate(item);
   };
 
   /* Raise a prompt to allow the user to change the price
@@ -99,11 +109,14 @@ project.
       }
     while(!angular.isNumber(price) || isNaN(price)) // while price not a number or is NaN
       item.price = price;
+      // Since price has been changed, recalculate the total
+      $scope.calculate(item);
   };
 })
 
 .controller('ShoppingCtrl', function($scope, Items) {
  
   $scope.items = Items.all();
+
   
 });

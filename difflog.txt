@@ -1,0 +1,70 @@
+diff --git a/www/js/controllers.js b/www/js/controllers.js
+index 4cbd868..ba9fa1c 100644
+--- a/www/js/controllers.js
++++ b/www/js/controllers.js
+@@ -34,12 +34,24 @@ project.
+     https://docs.angularjs.org/guide/expression
+   */
+   $scope.parseFloat = parseFloat;
++  // Store total price for a given item in shopping cart
+ 
+   /* Add the price of the current item to the total and Ionic updates 
+   the view using a data binding
+   */
+   $scope.calculate = function(item){
+-    $scope.total += item.price;    
++    if(item.qty != 0)
++    {
++      itemTotal = (item.qty*item.price);
++      $scope.total = itemTotal;
++    }
++    else if (item.qty === 0)
++    {
++        $scope.total += item.price;
++    }
++    
++    //$scope.total = itemTotal;
++    
+   };
+ 
+   // Increase the qty of the item by 1 in the items model
+@@ -49,10 +61,12 @@ project.
+ 
+   // Deduct the item price from the total provided total > 0
+   $scope.deductFromTotal = function(item){
+-    if($scope.total > 0){
++    if(item.qty === 0){
++      alert("No "+ item.name + " in shopping basket");
++    }
++    else{
+       $scope.total -= item.price;
+     }
+-    
+   };
+ 
+   // Decrease the qty of the item by 1 in the items model provided qty > 0
+@@ -98,7 +112,11 @@ project.
+           
+       }
+     while(!angular.isNumber(price) || isNaN(price)) // while price not a number or is NaN
++      
++      // Set new item price
+       item.price = price;
++      // Now that price is changed, recalculate total
++      $scope.calculate(item);
+   };
+ })
+ 
+diff --git a/www/templates/tab-items.html b/www/templates/tab-items.html
+index 00e27b0..16b9b48 100644
+--- a/www/templates/tab-items.html
++++ b/www/templates/tab-items.html
+@@ -16,7 +16,7 @@
+         <img ng-src="{{item.pic}}">
+         <h2>{{item.name}}</h2>
+ 
+-        <ion-button class="button button-positive" ng-click="calculate(item);increaseQty(item)">
++        <ion-button class="button button-positive" ng-click="increaseQty(item);calculate(item);">
+           {{item.price | currency : "€"}}
+         </ion-button>
+ 

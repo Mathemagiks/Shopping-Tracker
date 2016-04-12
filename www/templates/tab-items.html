@@ -16,11 +16,11 @@
         <img ng-src="{{item.pic}}">
         <h2>{{item.name}}</h2>
 
-        <ion-button class="button button-positive" ng-click="calculate(item);increaseQty(item)">
+        <ion-button class="button button-positive" ng-click="increaseQty(item);calculate(item);">
           {{item.price | currency : "€"}}
         </ion-button>
 
-        <ion-option-button class="button-light" ng-click="deductFromTotal(item); decreaseQty(item)">
+        <ion-option-button class="button-light" ng-click="decreaseQty(item)">
           <i class="icon ion-minus-circled"></i>
         </ion-option-button>
 
