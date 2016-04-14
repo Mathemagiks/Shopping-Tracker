@@ -6,8 +6,9 @@
     to ensure that it is presented in the view with the right number of decimal
     places, and the right currency symbol.
     -->
-<ion-view view-title="Total: {{total | currency : '€'}}">
+<ion-view view-title="Total: {{calculate() | currency : '€'}}">
   <ion-content>
+  <!-- <h2 ng-model="items">Total: {{calculate() | currency : '€'}}</h2> -->
       <ion-list>
     <!-- The directives below, {{item.id}}, {{item.price}}, and so on, allow the view
     to be bound to the model. When changes occur to the model, the view is updated 
